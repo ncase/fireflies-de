@@ -1,0 +1,413 @@
+<!doctype>
+<html>
+
+<head>
+
+	<!-- TRANSLATE: 'title' -->
+	<title>Glühwürmchen</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=640">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<!-- TRANSLATE: 'name' and 'description' -->
+	<meta itemprop="name" content="Glühwürmchen">
+	<meta itemprop="description" content="eine kleine Simulation von kleinen Glühwürmchen">
+	<meta itemprop="image" content="http://ncase.me/fireflies/social/thumbnail.png">
+
+	<!-- TRANSLATE: 'twitter:title' and 'twitter:description' -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:title" content="Glühwürmchen">
+	<meta name="twitter:description" content="eine kleine Simulation von kleinen Glühwürmchen">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/fireflies/social/thumbnail.png">
+
+	<!-- TRANSLATE: 'og:title' and 'og:description' -->
+	<meta property="og:title" content="Glühwürmchen">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/fireflies/">
+	<meta property="og:image" content="http://ncase.me/fireflies/social/thumbnail.png">
+	<meta property="og:description" content="eine kleine Simulation von kleinen Glühwürmchen">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/widgets.css">
+
+</head>
+<body>
+
+<!-- The firefly simulation -->
+<div id="game"></div>
+
+<!-- The WORDS! -->
+<div id="words">
+<h1>“Glühwürmchen”</h1>
+
+<p>
+Wie in der Luft schwebende Weihnachtslichter,
+so bringen Glühwürmchen stets etwas Magie in den Wald in dem sie leben.
+</p>
+
+<div style="overflow:hidden;">
+	<img src="ui/chaos.png" width="150" style="float: left;"/>
+	<div style="width: 185px; float: right;">
+		<span style="font-size:1.6em; line-height:1.1em;">KLICKE &amp; ZIEHE,</span>
+		<br>
+		um die Glühwürmchen
+		<br>
+		durcheinander zu wirbeln &rarr;
+	</div>
+</div>
+
+<p>
+Doch einige Glühwürmchenarten bringen <em>besonders</em> viel Magie mit sich.
+Wenn du in Südostasien spät nachts hinaus ans Flussufer gehst,
+wirst du mit diesem beeindruckenden Lichtspiel verwöhnt - mit freundlicher Genehmigung des thailändischen Glühwürmchens:
+</p>
+
+<iframe width="350" height="197" src="https://www.youtube-nocookie.com/embed/ZGvtnE1Wy6U?rel=0&amp;start=64" frameborder="0" allowfullscreen></iframe>
+
+<p>
+Ein ganzer Mangrovenwald, auf einen Schlag komplett erleuchtet,
+und bereits im nächsten Augenblick wieder ganz in Dunkelheit gehüllt, nur um daraufhin wieder zu erstrahlen - mit nahezu perfekter Präzision.
+Wie schaffen es tausende von Glühwürmchen sich untereinander abzustimmen?
+Wer ist der Dirigent dieser tonlosen Symphonie?
+</p>
+
+<p>
+Für fast ein Jahrhundert war das die große Frage, bis es sich 1992
+eine Gruppe von US amerikanischen Wissenschaftlern zur Aufgabe machte, sie zu beantworten.
+Leider wurden sie, wie zu erwarten war, von der Presse verhöhnt -
+<em>„Die Regierung verschleudert Ihre Steuergelder, um Glühwürmchen in Borneo zu untersuchen:
+Keine helle Idee!“</em> stand beispielsweise in einem Klatschblatt.
+Unbeirrt setzten die Wissenschaftler ihre Arbeit fort, ausgerüstet mit Kameras und Taschenrechnern.
+</p>
+
+<p>
+Also, wie bestimmen tausende Glühwürmchen einen Anführer,
+einen Maestro, um ihr Blinken zu koordinieren?
+Die Antwort, fanden die Wissenschaftler heraus, ist einfach:
+</p>
+
+<p>
+Es gibt keinen Anführer.
+</p>
+
+<p>
+Jedes Glühwürmchen hat seine <em>eigene</em> individuelle interne Uhr,
+und immer wenn die Uhr „zwölf schlägt“, blinkt es.
+</p>
+
+<p>
+<img src="ui/clock.png" width="350"/>
+</p>
+
+<p>
+Und statt ihre Uhren mit einem zentralen Anführer zu synchronisieren,
+macht jedes Glühwürmchen das Folgende:
+</p>
+
+<p>
+Schritt 1: Wenn du ein nahegelegendes Glühwürmchen blinken siehst,
+stelle deine Uhr ein wenig vor.
+</p>
+
+<p>
+<img src="ui/nudge.png" width="350"/>
+</p>
+
+<p>
+Schritt 2: Das war's.
+</p>
+
+<p>
+Kann diese einfache Kommunikation mit dem direkten Umfeld tatsächlich
+dafür sorgen, dass ein ganzer Wald voller Glühwürmchen in gleichem Takt zu blinken beginnt?
+Es gibt nur einen Weg das herauszufinden ...
+</p>
+
+<hr/>
+
+	<!-- TRANSLATE: 'label', 'label-on', and 'label-off' -->
+	<widget type="toggle"
+		id="neighborNudgeRule"
+		background="#000" color="#fff"
+		background-on="#FEE27F" color-on="#000"
+
+		label="Stupse deinen Nachbarn an, damit er seine Uhr vorstellt:<br>(zum Einschalten hier klicken&rarr;)"
+		label-on="AN" label-off="AUS">
+	</widget>
+
+<hr/>
+
+<p>
+Warte einen Augenblick. Schaue genau hin.
+</p>
+
+<p>
+Was siehst du?
+</p>
+
+<p>
+Zu erst, nicht viel.
+Die Glühwürmchen scheinen immernoch ohne Muster zu blinken.
+</p>
+
+<p>
+Doch nach einiger Zeit wirst du feststellen können, dass eine Gruppe von Glühwürmchen beginnt gemeinsam zu blinken -
+doch noch blinken die einzelnen Gruppen nicht gemeinsam.
+</p>
+
+<p>
+Noch etwas später kannst du beobachten, dass die Glühwürmchen „Wellen“ machen,
+so wie jubelnde Fans auf der Tribüne während eines Fußballspiels.
+</p>
+
+<p>
+Und dann blinken alle bis auf ein paar wenige Glühwürmchen zusammen -
+und letztlich schließen sich auch diese Nachzügler dem gemeinsamen Tanz an.
+</p>
+
+<p>
+Was kann es beeindruckenderes geben? Wenn du sie störst, indem du etwas Chaos stifftest ...
+</p>
+
+<div style="overflow:hidden;">
+	<img src="ui/chaos.png" width="150" style="float: left;"/>
+	<div style="width: 185px; float: right;">
+		<span style="font-size:1.6em; line-height:1.1em;">KLICKE &amp; ZIEHE,</span>
+		<br>
+		um sie erneut
+		<br>
+		durcheinander zu bringen &rarr;
+	</div>
+</div>
+
+<p>
+... ja, es mag zwar dafür sorgen, dass sie für einen Augenblick durcheinander blinken, doch langsam aber sicher
+finden sie wieder zusammen und blinken gemeinsam.
+</p>
+
+<p>
+Hier sind ein paar Knöpfe &amp; Schieber, die du benutzen kannst,
+um mit diesen virtuellen Glühwürmchen herumzuspielen:
+</p>
+
+<hr/>
+
+	<!-- TRANSLATE: 'label', 'label-min', and 'label-max' -->
+	<widget type="slider"
+		id="numFireflies"
+		background="#FEE27F" color="#fff"
+		min=10 max=500 step=1
+
+		label="Glühwürmchenanzahl:"
+		label-min="10" label-max="500">
+	</widget>
+
+	<!-- TRANSLATE: 'label', 'label-on', and 'label-off' -->
+	<widget type="toggle"
+		id="showClocks"
+		background="#000" color="#fff"
+		background-on="#FEE27F" color-on="#000"
+
+		label="Uhren anzeigen:"
+		label-on="AN" label-off="AUS">
+	</widget>
+
+	<!-- TRANSLATE: 'label', 'label-min', and 'label-max' -->
+	<widget type="slider"
+		id="clockSpeed"
+		background="#FEE27F" color="#fff"
+		min="0.2" max="2" step="0.05"
+
+		label="Geschwindigkeit der Uhren:"
+		label-min="langsam" label-max="schnell">
+	</widget>
+
+	<!-- TRANSLATE: 'label', 'label-on', and 'label-off' -->
+	<widget type="toggle"
+		id="neighborNudgeRule"
+		background="#000" color="#fff"
+		background-on="#FEE27F" color-on="#000"
+
+		label="Stupse deinen Nachbarn an, damit er seine Uhr vorstellt:"
+		label-on="AN" label-off="AUS">
+	</widget>
+
+	<!-- TRANSLATE: 'label', 'label-min', and 'label-max' -->
+	<widget type="slider"
+		id="nudgeAmount"
+		background="#FEE27F" color="#fff"
+		min="0.01" max="0.10" step="0.001"
+
+		label="Wie weit die Uhr vorgestellt wird:"
+		label-min="ein wenig" label-max="sehr weit">
+	</widget>
+
+	<!-- TRANSLATE: 'label', 'label-min', and 'label-max' -->
+	<widget type="slider"
+		id="neighborRadius"
+		background="#FEE27F" color="#fff"
+		min=50 max=500 step=10
+
+		label="Wie nah dein Nachbar sein muss:"
+		label-min="nah" label-max="weit weg">
+	</widget>
+
+	<!-- TRANSLATE: 'label' -->
+	<widget type="button"
+		id="resetFireflies"
+		background="#000" color="#fff"
+		background-hover="#FEE27F" color-hover="#000"
+
+		label="Glühwürmchen zurücksetzen">
+	</widget>
+
+	<!-- TRANSLATE: 'label' -->
+	<widget type="button"
+		id="resetEverything"
+		background="#000" color="#fff"
+		background-hover="#FEE27F" color-hover="#000"
+
+		label="alles zurücksetzen">
+	</widget>
+
+<hr/>
+
+<p>
+Und das ist das Geheimnis hinter dem Zaubertrick der Glühwürmchen:
+</p>
+
+<div style="overflow:hidden; text-align:center">
+<img src="ui/emergence.png" width="350" style="margin-bottom:25px"/>
+<div style="width:170px; float:left;">
+	<span style="font-size:33px; line-height:10px">kleinräumige</span><br><span style="font-size:27px">Kommunikation</span>
+</div>
+<div style="width:10px; float:left; position:relative; left:-5px; top:7px">&rarr;</div>
+<div style="width:170px; float:left;">
+	<span style="font-size:33px; line-height:10px">großräumige</span><br><span style="font-size:27px">Organisation</span>
+</div>
+</div>
+
+<p>
+Wie sich herausstellt sind Glühwürmchen nicht die einzigen,
+die sich beim kleinsten Element beginnend untereinander synchronisieren.
+Deine Neuronen erzeugen Hirnstromwellen und auch deine Herzmuskelzellen nutzen diesen Effekt, um synchron zu arbeiten.
+<a target="_blank" href="https://www.youtube.com/watch?v=5v5eBf2KwF8">
+Sogar ein Haufen lebloser Metronome auf einer wackligen Plattform fängt an, im Gleichtakt zu schwingen.</a>
+Darüber hinaus hat uns unser Verständnis der Selbstsynchronisierung geholfen,
+bessere Laser, Computer und Kommunikationstechnolgie zu bauen!
+</p>
+
+<p>
+Kaum zu glauben, dass die Mathematik hinter selbstsynchronisierenden Systemen
+zum Teil durch ein paar Wissenschaftler entdeckt wurde, die einfach eine große Liebe für Glühwürmchen hatten.
+Es scheint als war es keine helle Idee ihr Projekt <em>“Keine helle Idee”</em> zu nennen.
+</p>
+
+<p>
+. . .
+</p>
+
+<p>
+Du schwebst herum, sacht, in Stille,
+dann und wann durchbrichst du die Dunkelheit mit einem kleinen Pünktchen hellen Lichts.
+Mit nur deinem Licht, kannst du wenig um dich herum sehen.
+</p>
+
+<p>
+Doch immer wenn du erstrahlst, inspirierst du die um dich herum dazu, ebenfalls zu strahlen,
+etwas früher als sie es sonst getan hätten.
+Und die um dich herum inspirieren widerrum die um <em>sie</em> herum.
+</p>
+
+<p>
+Und so weiter und so fort.
+</p>
+
+<p>
+Zunächst blinken ein paar kleine Gruppen zusammen.
+Dann schwappt eine Welle von Licht durch den Schwarm.
+Und am Ende leuchtet ihr alle zusammen,
+als ein strahlendes Leuchtfeuer, alle in Harmonie, gemeinsam - synchron.
+</p>
+
+<p>
+Welchen Einfluss wirst du heute auf dein Umfeld haben, kleines Glühwürmchen?
+</p>
+
+<hr class="footer"/>
+
+<div id="credits">
+	<p>
+	Inspiriert durch das Buch von Steven Strogatz mit dem englischen Originaltitel<br>
+	<a href="http://www.powells.com/book/sync-how-order-emerges-from-chaos-in-the-universe-nature-daily-life-9780786887217" target="_blank">
+	SYNC: How Order Emerges From Chaos In the Universe, Nature, and Daily Life
+	</a>
+	</p>
+
+	<p>
+	Erstellt von
+	<a href="http://ncase.me/" target="_blank">Nicky Case</a>,
+	mit der Liebe &amp; Unterstützung seiner Förderer
+	<a href="credits" target="_blank">(schaue sie dir hier an)</a>.
+	</p>
+
+  <p>
+  Übersetzt von Matthias Miehl.
+  </p>
+
+	<p>
+	„Glühwürmchen“ („Fireflies“) ist ein quelloffenes Projekt und gemeinfrei. Hole dir den Quelltext bei Github
+  für das <a href="https://github.com/ncase/fireflies" target="_blank">englische Original</a> bzw.
+  diese <a href="https://github.com/makomi/fireflies-de" target="_blank">deutsche Übersetzung</a>.
+	</p>
+
+	<p>
+	<a href="https://www.patreon.com/ncase" target="_blank">
+		<span id="patreon" >Unterstütze ncase via „patreon” &lt;3</span>
+	</a>
+	</p>
+
+	<p>&nbsp;</p>
+
+	<p>
+	
+	Teile diesen Text mit deinen Freunden:<br>
+
+	<!-- TRANSLATE: 'text' -->
+	<sharing text="Glühwürmchen und was sie uns über, nunja, alles beibringen können. Eine interaktive Simulation:"
+			 link="http://ncase.me/fireflies-de/"></sharing>
+
+	</p>
+
+	<p style="margin-top:45px">
+
+  Hier ein Link zur Webseite des englischen Originals:<br>
+  <a href="http://ncase.me/fireflies/">Fireflies, and what they can teach us about, well, everything. An interactive simulation.</a><br><br>
+
+	Dort findest du am Ende eine Liste von Übersetzungen durch Fans in weitere Sprachen.
+
+	</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+<!-- Library code -->
+<script src="js/pixi.min.js"></script>
+<script src="js/howler.js"></script>
+<script src="js/minpubsub.src.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/Mouse.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/sharing.js"></script>
+
+<!-- Main code -->
+<script src="js/index.js?v=2"></script>
